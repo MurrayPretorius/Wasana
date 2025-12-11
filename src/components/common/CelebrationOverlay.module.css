@@ -1,0 +1,54 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.text {
+    font-size: 8rem;
+    font-weight: 900;
+    font-style: italic;
+    color: white;
+    text-shadow:
+        0 0 10px #ff00de,
+        0 0 20px #ff00de,
+        0 0 30px #ff00de,
+        0 0 40px #ff00de;
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+    animation: woosh 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes woosh {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateX(-100vw) rotate(-20deg);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1.2) translateX(0) rotate(-5deg);
+    }
+
+    40% {
+        transform: scale(1) translateX(0) rotate(5deg);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(1.1) translateX(0) rotate(-5deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5) translateX(100vw) rotate(10deg);
+    }
+}

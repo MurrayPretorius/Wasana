@@ -1,0 +1,152 @@
+.row {
+    display: flex;
+    align-items: stretch;
+    /* Stretch cells to fill row */
+    border-bottom: 1px solid hsl(var(--border));
+    padding: 0;
+    /* Remove padding from row, move to cells */
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.row:hover {
+    background-color: hsl(var(--muted) / 0.3);
+}
+
+.selected {
+    background-color: hsl(var(--primary) / 0.1);
+}
+
+.cell {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    /* Moved padding here */
+    border-right: 1px solid hsl(var(--border) / 0.3);
+    /* Subtle vertical divider */
+    min-width: 0;
+}
+
+.cell:last-child {
+    border-right: none;
+}
+
+.cell:nth-child(1) {
+    flex: 2;
+    /* Match ListView 2fr */
+}
+
+/* Name */
+.cell:nth-child(2) {
+    flex: 1.5;
+}
+
+/* Due Date */
+.cell:nth-child(3) {
+    flex: 1;
+}
+
+/* Assignee */
+.cell:nth-child(4) {
+    flex: 1;
+}
+
+/* Collaborators */
+.cell:nth-child(5) {
+    flex: 1.5;
+}
+
+/* Tags */
+.cell:nth-child(6) {
+    flex: 0.5;
+}
+
+/* Action */
+
+.check {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid hsl(var(--muted-foreground));
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.check:hover {
+    border-color: hsl(var(--primary));
+}
+
+.checked {
+    background: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+}
+
+.taskName {
+    font-weight: 500;
+}
+
+.avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.tag {
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    background: hsl(var(--muted));
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.action {
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.row:hover .action {
+    opacity: 1;
+}
+
+.addTaskRow {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-top: 1px solid transparent;
+}
+
+.addTaskRow:hover {
+    color: hsl(var(--primary));
+    background: hsl(var(--background));
+}
+
+.inlineInput {
+    background: transparent;
+    border: 1px solid hsl(var(--primary));
+    border-radius: 4px;
+    padding: 0 0.25rem;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    width: 100%;
+    outline: none;
+}

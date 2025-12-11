@@ -1,0 +1,93 @@
+.card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border) / 0.5);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: all var(--transition-speed);
+    cursor: grab;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+    border-color: hsl(var(--primary) / 0.3);
+}
+
+.selected {
+    border-color: hsl(var(--primary));
+    background-color: hsl(var(--primary) / 0.05);
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+.cardDragging {
+    opacity: 0.8;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    cursor: grabbing;
+    transform: scale(1.02);
+    z-index: 100;
+}
+
+.title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    user-select: none;
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+    user-select: none;
+}
+
+.badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.badge-high {
+    background: hsl(0 84% 60% / 0.1);
+    color: hsl(0 84% 60%);
+}
+
+.badge-medium {
+    background: hsl(35 90% 60% / 0.1);
+    color: hsl(35 90% 60%);
+}
+
+.badge-low {
+    background: hsl(142 70% 50% / 0.1);
+    color: hsl(142 70% 50%);
+}
+
+.avatars {
+    display: flex;
+    margin-left: auto;
+}
+
+.avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid hsl(var(--card));
+    background: #cbd5e1;
+    margin-left: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: white;
+    font-weight: 700;
+}

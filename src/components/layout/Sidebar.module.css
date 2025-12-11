@@ -1,0 +1,58 @@
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: hsl(var(--card));
+    border-right: 1px solid hsl(var(--border));
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    transition: all var(--transition-speed);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, hsl(var(--primary)), #8b5cf6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    color: hsl(var(--muted-foreground));
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+}
+
+.navItem:hover,
+.navItem.active {
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+}
+
+.sectionTitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(var(--muted-foreground));
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem 0.5rem;
+}

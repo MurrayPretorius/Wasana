@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background 0.2s;
+}
+
+.item:hover {
+    background: hsl(var(--muted));
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid hsl(var(--muted-foreground));
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    background: transparent;
+}
+
+.checkbox:hover {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+}
+
+.checkbox.completed {
+    background: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+    color: white;
+}
+
+.input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    font-size: 0.9rem;
+    color: hsl(var(--foreground));
+    outline: none;
+}
+
+.input.completed {
+    text-decoration: line-through;
+    color: hsl(var(--muted-foreground));
+}
+
+.addBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    width: fit-content;
+    margin-top: 0.5rem;
+}
+
+.addBtn:hover {
+    background: hsl(var(--muted));
+    color: hsl(var(--foreground));
+}

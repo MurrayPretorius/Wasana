@@ -1,0 +1,192 @@
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.trigger {
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.trigger:hover {
+    background: hsl(var(--muted) / 0.5);
+}
+
+.placeholder {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(var(--muted-foreground));
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+}
+
+.dashedAvatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px dashed hsl(var(--muted-foreground));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--muted-foreground));
+}
+
+.selection {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #3b82f6;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid hsl(var(--background));
+    margin-left: -8px;
+}
+
+.avatar:first-child {
+    margin-left: 0;
+}
+
+.moreCount {
+    font-size: 0.8rem;
+    color: hsl(var(--muted-foreground));
+    margin-left: 0.25rem;
+}
+
+.singleName {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.25rem;
+    width: 250px;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 50;
+    overflow: hidden;
+    animation: fadeIn 0.1s ease-out;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+    background: hsl(var(--muted) / 0.3);
+}
+
+.searchIcon {
+    color: hsl(var(--muted-foreground));
+    margin-right: 0.5rem;
+}
+
+.searchInput {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    color: hsl(var(--foreground));
+}
+
+.list {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0.25rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.1s;
+}
+
+.item:hover {
+    background: hsl(var(--muted));
+}
+
+.selected {
+    background: hsl(var(--primary) / 0.1);
+}
+
+.itemAvatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+}
+
+.itemInfo {
+    flex: 1;
+    overflow: hidden;
+}
+
+.itemName {
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.itemEmail {
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.check {
+    color: hsl(var(--primary));
+    margin-left: 0.5rem;
+}
+
+.empty {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: hsl(var(--muted-foreground));
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
