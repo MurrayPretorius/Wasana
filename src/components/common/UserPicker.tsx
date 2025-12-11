@@ -12,9 +12,11 @@ interface UserPickerProps {
     onChange: (ids: string[]) => void;
     placeholder?: string;
     multiple?: boolean;
+    onClose?: () => void;
 }
 
-const UserPicker = ({ selectedUserIds, onChange, placeholder = "Select user...", multiple = false }: UserPickerProps) => {
+
+const UserPicker = ({ selectedUserIds, onChange, placeholder = "Select user...", multiple = false, onClose }: UserPickerProps) => {
     const { users } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
     const [search, setSearch] = useState('');
@@ -25,6 +27,7 @@ const UserPicker = ({ selectedUserIds, onChange, placeholder = "Select user...",
         const handleClickOutside = (event: MouseEvent) => {
             if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
+                onClose?.();
             }
         };
         document.addEventListener('mousedown', handleClickOutside);
@@ -46,6 +49,7 @@ const UserPicker = ({ selectedUserIds, onChange, placeholder = "Select user...",
         } else {
             onChange([id]); // Replace
             setIsOpen(false);
+            onClose?.();
         }
     };
 

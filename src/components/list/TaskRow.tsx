@@ -112,8 +112,6 @@ const TaskRow = ({ task, isSelected, onToggleSelection, onClick }: TaskRowProps)
                     <span
                         className={styles.taskName}
                         style={{ textDecoration: task.status === 'done' ? 'line-through' : 'none', color: task.status === 'done' ? 'hsl(var(--muted-foreground))' : 'inherit' }}
-                        className={styles.taskName}
-                        style={{ textDecoration: task.status === 'done' ? 'line-through' : 'none', color: task.status === 'done' ? 'hsl(var(--muted-foreground))' : 'inherit' }}
                     >
                         {task.title}
                     </span>
