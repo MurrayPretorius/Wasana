@@ -4,12 +4,14 @@ import React, { useState, useEffect } from 'react';
 import styles from '../modals/Modal.module.css';
 import { useProject } from '@/context/ProjectContext';
 import { useAuth } from '@/context/AuthContext';
+import { useTheme, ThemeColor } from '@/context/ThemeContext';
 import { XMarkIcon, CheckIcon } from '@heroicons/react/24/outline';
 import { isValidEmail, isValidPassword, PASSWORD_REQUIREMENTS_MSG } from '@/utils/validationUtils';
 
 const ProfileSettingsModal = () => {
     const { isProfileModalOpen, closeModal } = useProject();
     const { user, updateUser } = useAuth();
+    const { color, setColor } = useTheme();
 
     const [name, setName] = useState('');
     const [title, setTitle] = useState('');
@@ -94,6 +96,30 @@ const ProfileSettingsModal = () => {
                         </div>
                     )}
 
+                    <div style={{ marginBottom: '1.5rem' }}>
+                        <h3 className={styles.sectionHeader}>Theme Colours</h3>
+                        <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem' }}>
+                            {(['purple', 'blue', 'green', 'orange', 'pink'] as ThemeColor[]).map((c) => (
+                                <button
+                                    key={c}
+                                    type="button"
+                                    onClick={() => setColor(c)}
+                                    style={{
+                                        width: '2rem',
+                                        height: '2rem',
+                                        borderRadius: '50%',
+                                        background: `hsl(${getHSL(c)})`,
+                                        border: color === c ? '2px solid hsl(var(--foreground))' : '2px solid transparent',
+                                        cursor: 'pointer',
+                                        transition: 'transform 0.2s',
+                                        transform: color === c ? 'scale(1.1)' : 'scale(1)'
+                                    }}
+                                    aria-label={`Select ${c} theme`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
                     <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         <div>
                             <label className={styles.label}>Full Name</label>
@@ -153,6 +179,18 @@ const ProfileSettingsModal = () => {
             </div>
         </div>
     );
+};
+
+// Helper to match the context values for simple UI usage
+const getHSL = (c: string) => {
+    switch (c) {
+        case 'purple': return '250 80% 60%';
+        case 'blue': return '220 80% 60%';
+        case 'green': return '142 70% 45%';
+        case 'orange': return '24 95% 53%';
+        case 'pink': return '330 80% 60%';
+        default: return '250 80% 60%';
+    }
 };
 
 export default ProfileSettingsModal;
