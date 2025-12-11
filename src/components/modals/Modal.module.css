@@ -186,7 +186,7 @@
     padding: 0.6rem 1.2rem;
     border-radius: 0.75rem;
     border: 1px solid hsl(var(--border));
-    background: white;
+    background: hsl(var(--card));
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
